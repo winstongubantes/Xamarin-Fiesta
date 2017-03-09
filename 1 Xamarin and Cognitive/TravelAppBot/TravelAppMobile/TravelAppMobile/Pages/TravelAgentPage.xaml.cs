@@ -13,7 +13,7 @@ namespace TravelAppMobile.Pages
         public TravelAgentPage()
         {
             InitializeComponent();
-
+            NavigationPage.SetHasNavigationBar(this, false);
             //Travel Agent AI will ask for
             //From Origin to Destination of flight
             //and the date

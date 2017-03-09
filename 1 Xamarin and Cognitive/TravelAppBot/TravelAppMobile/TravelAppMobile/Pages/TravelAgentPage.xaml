@@ -2,39 +2,144 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:TravelAppMobile.ViewModels;assembly=TravelAppMobile"
+             xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:behaviors="clr-namespace:TravelAppMobile.Behaviors;assembly=TravelAppMobile"
+             xmlns:effects="clr-namespace:TravelAppMobile.Effects;assembly=TravelAppMobile"
+             xmlns:android="clr-namespace:PlatformSpecifics.Android;assembly=TravelAppMobile"
              x:Class="TravelAppMobile.Pages.TravelAgentPage"
              Title="Travel Agent">
 <ContentPage.BindingContext>
   <viewModels:TravelAgentPageViewModel></viewModels:TravelAgentPageViewModel>
 </ContentPage.BindingContext>
 <ContentPage.Content>
-  <StackLayout Orientation="Vertical" 
-               HorizontalOptions="FillAndExpand" 
-               VerticalOptions="FillAndExpand">
-    
-    <ListView ItemsSource="{Binding Messages}" 
-              Margin="10"
-              HasUnevenRows="True"
-              IsPullToRefreshEnabled="True" 
-              IsRefreshing="{Binding IsRefreshing }">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <ViewCell>
-            <StackLayout HorizontalOptions="FillAndExpand" 
-                         VerticalOptions="FillAndExpand" 
-                         Orientation="Horizontal">
-              <Image Source="{Binding UserImageUrl}"></Image>
-              <Label Text="{Binding Message}"></Label>
+    <Grid>
+            <ffimage:CachedImage DownsampleToViewSize="True" 
+                                    Source="burjkalifha_bg.jpg" 
+                                    Aspect="AspectFill">
+            </ffimage:CachedImage>
+            <Grid VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10, 10, 0,0">
+                <Label  android:CustomFont.IsCustomFont="True" 
+                            FontFamily="FontAwesome"  
+                            FontSize="25"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Start"
+                            TextColor="{StaticResource OffWhite}" 
+                            Text="&#xf060;">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BackCommand}"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label FontFamily="{StaticResource MontserratBold}" 
+                        Text="Book A Flight" 
+                        TextColor="{StaticResource OffWhite}" 
+                        FontSize="20"  
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"
+                        HorizontalOptions="FillAndExpand"></Label>
+            </Grid>
+            <StackLayout Orientation="Vertical" 
+                         Margin="0, 40, 0,0"
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand">
+
+            <ListView ItemsSource="{Binding Messages}" 
+                        Margin="10"
+                        HasUnevenRows="True"
+                        IsPullToRefreshEnabled="True" 
+                        IsRefreshing="{Binding IsRefreshing }">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--<StackLayout HorizontalOptions="FillAndExpand" 
+                                        VerticalOptions="FillAndExpand" 
+                                        Orientation="Horizontal">
+                            <Image Source="{Binding UserImageUrl}"></Image>
+                            <Label Text="{Binding Message}"></Label>
+                            </StackLayout>-->
+
+                                <Grid Padding="0, 15, 0, 15">
+
+                                    <StackLayout HorizontalOptions="FillAndExpand"
+                                                         VerticalOptions="Start"
+                                                         Margin="50, 0, 0, 0">
+                                        <Label FontFamily="{StaticResource MontserratBold}" 
+                                                        Text="{Binding FromUser}" 
+                                                        TextColor="{StaticResource DarkerOffWhite}" 
+                                                        FontSize="12"   
+                                                        FontAttributes="Bold"
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="FillAndExpand"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout BackgroundColor="White" 
+                                                         HorizontalOptions="FillAndExpand"
+                                                         VerticalOptions="Start"
+                                                         Margin="20, 25, 0, 0" Padding="15, 15, 15, 15">
+                                        
+                                        <Label FontFamily="{StaticResource MontserratRegular}" 
+                                                        Text="{Binding Message}" 
+                                                        TextColor="Gray" 
+                                                        FontSize="18"   
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="FillAndExpand"></Label>
+
+                                    </StackLayout>
+
+                                    <ffimage:CachedImage  Source="{Binding UserImageUrl}"
+                                                      DownsampleToViewSize="True"
+                                                      Aspect="AspectFit"
+                                                      HorizontalOptions="Start"
+                                                      VerticalOptions="Start"
+                                                      HeightRequest="40">
+                                        <ffimage:CachedImage.Transformations>
+                                            <transformations:CircleTransformation />
+                                        </ffimage:CachedImage.Transformations>
+                                    </ffimage:CachedImage>
+
+                                </Grid>
+                            </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+                <StackLayout VerticalOptions="End"   Margin="20, 10, 20, 20" HorizontalOptions="FillAndExpand">
+                <StackLayout  VerticalOptions="Start" Spacing="0">
+                    <StackLayout  Orientation="Horizontal">
+                        <Entry 
+                            PlaceholderColor="{StaticResource OffWhite}" 
+                            FontFamily="{StaticResource MontserratRegular}"  
+                            TextColor="White"  
+                            FontSize="20"
+                            Placeholder="Please enter message.." Text="{Binding TextMessage}"
+                            HorizontalOptions="FillAndExpand">
+                            <Entry.Behaviors>
+                                <behaviors:LineFocusEntryBehavior FocusBackgroundColor="White" 
+                                                    UnFocusBackgroundColor="White"
+                                                    x:Name="BehaviorTxtSearch" >
+                                </behaviors:LineFocusEntryBehavior>
+                            </Entry.Behaviors>
+                            <Entry.Effects>
+                                <effects:NoBorderEntryEffect></effects:NoBorderEntryEffect>
+                            </Entry.Effects>
+                        </Entry>
+                    </StackLayout>
+
+                    <BoxView x:Name="BxSearch"
+                                HeightRequest="1"
+                                BackgroundColor="{Binding Source={x:Reference BehaviorTxtSearch}, Path=BackgroundColor}" />
+                </StackLayout>
+                <Button Text="Send" 
+                        BorderColor="{StaticResource CloudBlue}"
+                        BorderRadius="25" 
+                        BackgroundColor="{StaticResource CloudBlue}" 
+                        TextColor="White" 
+                        FontFamily="{StaticResource MontserratBold}"
+                        FontSize="23"
+                        Command="{Binding SendMessageCommand}"></Button>
             </StackLayout>
-          </ViewCell>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-    
-    <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand">
-      <Entry Placeholder="Please enter message.." Text="{Binding TextMessage}"></Entry>
-      <Button Text="Send" Command="{Binding SendMessageCommand}"></Button>
-    </StackLayout>
-  </StackLayout>
+        </StackLayout>
+    </Grid>
 </ContentPage.Content>
 </ContentPage>

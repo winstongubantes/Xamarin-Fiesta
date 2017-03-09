@@ -19,9 +19,11 @@ namespace TravelAppMobile.ViewModels
         private ObservableCollection<Conversation> _conversationList;
 
         private ICommand _showMenuCommand;
+        private ICommand _bookFlightCommand;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public Action ToggleMenuAction { get; set; }
+        public Action BookFlightAction { get; set; }
 
         public MainPageViewModel()
         {
@@ -71,6 +73,17 @@ namespace TravelAppMobile.ViewModels
                 return _showMenuCommand = _showMenuCommand ?? new Command(() =>
                 {
                     ToggleMenuAction?.Invoke();
+                });
+            }
+        }
+
+        public ICommand BookFlightCommand
+        {
+            get
+            {
+                return _bookFlightCommand = _bookFlightCommand ?? new Command(() =>
+                {
+                    BookFlightAction?.Invoke();
                 });
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TravelAppMobile.Pages;
+using TravelAppMobile.Pages.Base;
 using Xamarin.Forms;
 
 namespace TravelAppMobile
@@ -13,7 +14,7 @@ namespace TravelAppMobile
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new BaseNavigationPage(new MainPage());
         }
 
         protected override void OnStart()

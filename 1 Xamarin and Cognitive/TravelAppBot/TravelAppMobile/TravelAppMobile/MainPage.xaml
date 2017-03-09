@@ -118,11 +118,11 @@
                                 <TapGestureRecognizer Command="{Binding ToggleMenuCommand}"></TapGestureRecognizer>
                             </Label.GestureRecognizers>
                         </Label>
-                        <Label FontFamily="{StaticResource Amontillado}" 
+                        <Label x:Name="LblAppName" FontFamily="{StaticResource Amontillado}" 
                             Text="iTravel" 
                             FontAttributes="Bold"
                             TextColor="{StaticResource OffWhite}" 
-                            FontSize="70"   
+                            FontSize="90"   
                             HorizontalTextAlignment="Center"
                             HorizontalOptions="FillAndExpand"></Label>
                     </Grid>
@@ -186,6 +186,24 @@
                         </ListView>
                     </StackLayout>
                 </StackLayout>
+                <Grid x:Name="GrdBookFlight" VerticalOptions="End" HorizontalOptions="End" Margin="0,0, 10, 10">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BookFlightCommand}"></TapGestureRecognizer>
+                    </Grid.GestureRecognizers>
+                    <Label android:CustomFont.IsCustomFont="True" 
+                       FontFamily="FontAwesome" 
+                       FontSize="75"
+                       Text="&#xf111;" 
+                       TextColor="{StaticResource CloudBlue}" 
+                       VerticalOptions="Center"></Label>
+                    <Label FontFamily="{StaticResource MontserratBold}" 
+                        Text="book" 
+                        TextColor="{StaticResource OffWhite}" 
+                        FontSize="14"   
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"></Label>
+                </Grid>
             </Grid>
         </Grid>
     </ContentPage.Content>

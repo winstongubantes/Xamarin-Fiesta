@@ -10,6 +10,7 @@ using System.Windows.Input;
 using TravelAppMobile.Models;
 using TravelAppMobile.Services;
 using Xamarin.Forms;
+using Application = Xamarin.Forms.PlatformConfiguration.AndroidSpecific.Application;
 
 namespace TravelAppMobile.ViewModels
 {
@@ -25,6 +26,8 @@ namespace TravelAppMobile.ViewModels
 
         private ICommand _sendMessageCommand;
 
+        private ICommand _backCommand;
+
         private ChatBotService _chatBotService = new ChatBotService();
 
         public TravelAgentPageViewModel()
@@ -33,8 +36,8 @@ namespace TravelAppMobile.ViewModels
             _messages.Add(new ConversationMessage
             {
                 Message = "Hi this is travel agent, how may i help you?",
-                FromUser = "Bot",
-                UserImageUrl = "customer_service.png"
+                FromUser = "TRAVEL AGENT",
+                UserImageUrl = "travelagent.jpg"
             });
         }
 
@@ -66,9 +69,9 @@ namespace TravelAppMobile.ViewModels
                 {
                     Messages.Add(new ConversationMessage
                     {
-                        FromUser = "Me",
+                        FromUser = "AVID CUSTOMER",
                         Message = TextMessage,
-                        UserImageUrl = "me_user.png"
+                        UserImageUrl = "winston.png"
                     });
 
                     IsRefreshing = true;
@@ -83,9 +86,9 @@ namespace TravelAppMobile.ViewModels
                     {
                         Messages.Add(new ConversationMessage
                         {
-                            FromUser = msgItem.From,
+                            FromUser = msgItem.From == "travelagentbotcn" ? "TRAVEL AGENT" : "AVID CUSTOMER",
                             Message = msgItem.Text,
-                            UserImageUrl = msgItem.From == "travelappbot"?  "customer_service.png" : "me_user.png"
+                            UserImageUrl = msgItem.From == "travelagentbotcn" ? "travelagent.png" : "winston.png" //travelagentbotcn IS THE NAME OF THE BOT YOU CREATED
                         });
                     }
 
@@ -104,6 +107,16 @@ namespace TravelAppMobile.ViewModels
             }
         }
 
+        public ICommand BackCommand
+        {
+            get
+            {
+                return _backCommand = _backCommand ?? new Command(() =>
+                {
+                    Xamarin.Forms.Application.Current.MainPage.Navigation.PopAsync();
+                });
+            }
+        }
 
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
