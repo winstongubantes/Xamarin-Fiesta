@@ -13,7 +13,7 @@ namespace TravelAppMobile
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new TravelAgentPage());
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

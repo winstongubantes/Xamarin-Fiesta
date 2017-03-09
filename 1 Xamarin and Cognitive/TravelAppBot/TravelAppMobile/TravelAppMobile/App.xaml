@@ -4,7 +4,38 @@
              x:Class="TravelAppMobile.App">
   <Application.Resources>
 
-    <!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <!-- Fonts -->
+            <OnPlatform x:Key="MontserratRegular"
+                  x:TypeArguments="x:String"
+                  iOS="Montserrat-Regular"
+                  Android="Montserrat-Regular.ttf#Montserrat"
+                  WinPhone="Assets/Fonts/Montserrat-Regular.ttf#Montserrat"/>
 
-  </Application.Resources>
+            <OnPlatform x:Key="MontserratBold"
+                  x:TypeArguments="x:String"
+                  iOS="Montserrat-Bold"
+                  Android="Montserrat-Bold.ttf#Montserrat"
+                  WinPhone="Assets/Fonts/Montserrat-Bold.ttf#Montserrat"/>
+
+            <OnPlatform x:Key="FontAwesome"
+                  x:TypeArguments="x:String"
+                  iOS="FontAwesome"
+                  Android="fontawesome.ttf#FontAwesome"
+                  WinPhone="Assets/Fonts/fontawesome.ttf#FontAwesome"/>
+
+            <OnPlatform x:Key="Amontillado"
+                  x:TypeArguments="x:String"
+                  iOS="Amontillado"
+                  Android="Amontillado.ttf#Amontillado"
+                  WinPhone="Assets/Fonts/Amontillado.ttf#Amontillado"/>
+
+            <!--Colors-->
+            <Color x:Key="FbBlue">#3b5998</Color>
+            <Color x:Key="OffWhite">#EAEEF7</Color>
+            <Color x:Key="DarkOffWhite">#D3D5D8</Color>
+            <Color x:Key="DarkerOffWhite">#8C9097</Color>
+        </ResourceDictionary>
+
+    </Application.Resources>
 </Application>
