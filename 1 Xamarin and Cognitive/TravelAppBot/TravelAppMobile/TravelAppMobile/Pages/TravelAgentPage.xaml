@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:TravelAppMobile.ViewModels;assembly=TravelAppMobile"
+             x:Class="TravelAppMobile.Pages.TravelAgentPage"
+             Title="Travel Agent">
+<ContentPage.BindingContext>
+  <viewModels:TravelAgentPageViewModel></viewModels:TravelAgentPageViewModel>
+</ContentPage.BindingContext>
+<ContentPage.Content>
+  <StackLayout Orientation="Vertical" 
+               HorizontalOptions="FillAndExpand" 
+               VerticalOptions="FillAndExpand">
+    
+    <ListView ItemsSource="{Binding Messages}" 
+              Margin="10"
+              HasUnevenRows="True"
+              IsPullToRefreshEnabled="True" 
+              IsRefreshing="{Binding IsRefreshing }">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout HorizontalOptions="FillAndExpand" 
+                         VerticalOptions="FillAndExpand" 
+                         Orientation="Horizontal">
+              <Image Source="{Binding UserImageUrl}"></Image>
+              <Label Text="{Binding Message}"></Label>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    
+    <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand">
+      <Entry Placeholder="Please enter message.." Text="{Binding TextMessage}"></Entry>
+      <Button Text="Send" Command="{Binding SendMessageCommand}"></Button>
+    </StackLayout>
+  </StackLayout>
+</ContentPage.Content>
+</ContentPage>
