@@ -7,7 +7,6 @@ You and your team (maximum of 3 members) are invited to join our Enterprise Mobi
 
 In this session, you?ll learn how to:
 * Efficiently build cross-platform mobile applications with Xamarin technology
-* Seamlessly integrate applications with your company?s data services
 * Maximize Visual Studio and MSDN to enable high-performing delivery teams
 * Create a Cloud-Ready Mobile App with Azure Mobile App services
 * Utilize Microsoft's Cognitive Services and consume it to your Xamarin Applications
