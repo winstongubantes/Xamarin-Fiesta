@@ -3,13 +3,13 @@
 ![EnterpriseDev](https://github.com/winstongubantes/Xamarin-Fiesta/blob/master/Assets/xamarin_fiesta.jpg)
 
 Visual Studio and Xamarin provide developers with the best-in-class tools to deliver native Android, iOS, and Windows apps, using their existing .NET skills, teams, and code. 
-You and your team (maximum of 3 members) are invited to join our Enterprise Mobile App Dev Workshop, an instructor-led session where we will explore building rich mobile applications on the Xamarin platform.
+You and your team (maximum of 3 members) are invited to join our Xamarin Fiesta Workshop, an instructor-led session where we will explore building rich mobile applications on the Xamarin platform.
 
 In this session, you will learn how to:
 * Efficiently build cross-platform mobile applications with Xamarin technology
 * Maximize Visual Studio and MSDN to enable high-performing delivery teams
 * Create a Cloud-Ready Mobile App with Azure Mobile App services
-* Utilize Microsoft's Cognitive Services and consume it to your Xamarin Applications
+* Utilize Microsoft's Cognitive Services like Language Understanding Intelligent Service and consume it to your Xamarin Applications
 
 
 ![SampleApp](https://github.com/winstongubantes/Xamarin-Fiesta/blob/master/Assets/mobile_sample.png)
