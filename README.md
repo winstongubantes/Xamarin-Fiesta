@@ -1,4 +1,4 @@
-# Xamarin Fiesta - Davao ( Xamarin.Forms with Cognitive Services )
+#Xamarin.Forms with Cognitive Services
 
 ![EnterpriseDev](https://github.com/winstongubantes/Xamarin-Fiesta/blob/master/Assets/xamarin_fiesta.jpg)
 
