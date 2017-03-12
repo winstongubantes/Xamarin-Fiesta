@@ -43,7 +43,7 @@
                          Margin="0, 40, 0,0"
                 HorizontalOptions="FillAndExpand" 
                 VerticalOptions="FillAndExpand">
-
+                <ActivityIndicator IsRunning="True" IsVisible="{Binding IsBusy}"></ActivityIndicator>
                 <StackLayout VerticalOptions="FillAndExpand"   Margin="20, 10, 20, 20" HorizontalOptions="FillAndExpand">
                     <StackLayout  VerticalOptions="FillAndExpand" Spacing="0">
                         <Editor  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Text="{Binding TextValueFromImage}" BackgroundColor="White"></Editor>
