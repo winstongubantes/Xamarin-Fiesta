@@ -81,14 +81,22 @@ namespace TravelAppMobile
 
             if (listView.SelectedItem != null)
                 listView.SelectedItem = null;
-        }
+            else
+                return;
 
-        private void Message_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var listView = (ListView)sender;
 
-            if (listView.SelectedItem != null)
-                listView.SelectedItem = null;
+            var menu = listView.SelectedItem as Models.MenuItem;
+
+
+            switch (menu.Title)
+            {
+                case "Language":
+                    Navigation.PushAsync(new TravelAgentPage());
+                    break;
+                case "Vision":
+                    Navigation.PushAsync(new OCRPage());
+                    break;
+            }
         }
     }
 }

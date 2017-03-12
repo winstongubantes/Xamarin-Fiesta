@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:TravelAppMobile.ViewModels;assembly=TravelAppMobile"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:android="clr-namespace:PlatformSpecifics.Android;assembly=TravelAppMobile"
+             xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:behaviors="clr-namespace:TravelAppMobile.Behaviors;assembly=TravelAppMobile"
+             xmlns:effects="clr-namespace:TravelAppMobile.Effects;assembly=TravelAppMobile"
+             x:Class="TravelAppMobile.Pages.OCRPage"
+             Title="OCRPage">
+    <ContentPage.BindingContext>
+        <viewModels:OCRPageViewModel></viewModels:OCRPageViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <forms:CachedImage DownsampleToViewSize="True" 
+                                    Source="burjkalifha_bg.jpg" 
+                                    Aspect="AspectFill">
+            </forms:CachedImage>
+            <Grid VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10, 10, 0,0">
+                <Label  android:CustomFont.IsCustomFont="True" 
+                            FontFamily="FontAwesome"  
+                            FontSize="25"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Start"
+                            TextColor="{StaticResource OffWhite}" 
+                            Text="&#xf060;">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BackCommand}"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label FontFamily="{StaticResource MontserratBold}" 
+                        Text="Convert Image to Text" 
+                        TextColor="{StaticResource OffWhite}" 
+                        FontSize="20"  
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"
+                        HorizontalOptions="FillAndExpand"></Label>
+            </Grid>
+            <StackLayout Orientation="Vertical" 
+                         Margin="0, 40, 0,0"
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand">
+
+                <StackLayout VerticalOptions="FillAndExpand"   Margin="20, 10, 20, 20" HorizontalOptions="FillAndExpand">
+                    <StackLayout  VerticalOptions="FillAndExpand" Spacing="0">
+                        <Editor  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Text="{Binding TextValueFromImage}" BackgroundColor="White"></Editor>
+                    </StackLayout>
+                    <Button Text="Convert" 
+                        BorderColor="{StaticResource CloudBlue}"
+                        BorderRadius="25" 
+                        VerticalOptions ="End"
+                        BackgroundColor="{StaticResource CloudBlue}" 
+                        TextColor="White" 
+                        FontFamily="{StaticResource MontserratBold}"
+                        FontSize="23"
+                        Command="{Binding ConvertCommand}"></Button>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

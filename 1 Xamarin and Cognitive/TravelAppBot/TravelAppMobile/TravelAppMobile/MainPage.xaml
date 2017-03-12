@@ -126,65 +126,7 @@
                             HorizontalTextAlignment="Center"
                             HorizontalOptions="FillAndExpand"></Label>
                     </Grid>
-                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Margin="20, 0, 20, 0">
-                        <ListView ItemsSource="{Binding ConversationList}" 
-                            VerticalOptions="FillAndExpand"
-                            HasUnevenRows="True" 
-                            SeparatorVisibility="None"
-                            ItemSelected="Message_OnItemSelected">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell>
-                                        <Grid Padding="0, 15, 0, 15">
 
-                                            <StackLayout HorizontalOptions="FillAndExpand"
-                                                         VerticalOptions="Start"
-                                                         Margin="50, 0, 0, 0">
-                                                <Label FontFamily="{StaticResource MontserratBold}" 
-                                                        Text="WINSTON GUBANTES" 
-                                                        TextColor="{StaticResource DarkerOffWhite}" 
-                                                        FontSize="12"   
-                                                        FontAttributes="Bold"
-                                                        VerticalOptions="Center"
-                                                        HorizontalOptions="FillAndExpand"></Label>
-                                            </StackLayout>
-
-                                            <StackLayout BackgroundColor="White" 
-                                                         HorizontalOptions="FillAndExpand"
-                                                         VerticalOptions="Start"
-                                                         Margin="20, 25, 0, 0">
-                                                <Label FontFamily="{StaticResource MontserratRegular}" 
-                                                        Text="{Binding Text}" 
-                                                        TextColor="{StaticResource OffWhite}" 
-                                                        FontSize="18"   
-                                                        VerticalOptions="Center"
-                                                        HorizontalOptions="FillAndExpand"></Label>
-                                                <Label FontFamily="{StaticResource MontserratRegular}" 
-                                                        Text="{Binding Text}" 
-                                                        TextColor="{StaticResource OffWhite}" 
-                                                        FontSize="18"   
-                                                        VerticalOptions="Center"
-                                                        HorizontalOptions="FillAndExpand"></Label>
-
-                                            </StackLayout>
-
-                                            <ffimage:CachedImage  Source="winston.jpg"
-                                                      DownsampleToViewSize="True"
-                                                      Aspect="AspectFit"
-                                                      HorizontalOptions="Start"
-                                                      VerticalOptions="Start"
-                                                      HeightRequest="40">
-                                                <ffimage:CachedImage.Transformations>
-                                                    <transformations:CircleTransformation />
-                                                </ffimage:CachedImage.Transformations>
-                                            </ffimage:CachedImage>
-
-                                        </Grid>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </StackLayout>
                 </StackLayout>
                 <Grid x:Name="GrdBookFlight" VerticalOptions="End" HorizontalOptions="End" Margin="0,0, 10, 10">
                     <Grid.GestureRecognizers>
